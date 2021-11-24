@@ -55,8 +55,18 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone number is invalid. Not include hyphen(-)')
       end
-      it 'phone_numberは10桁以上11桁以内の半角数値のみでないと保存できない' do
-        @order_address.phone_number = '090-123456789'
+      it 'phone_numberは半角数値のみでないと保存できない' do
+        @order_address.phone_number = '090-1234567'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include('Phone number is invalid. Not include hyphen(-)')
+      end
+      it 'phone_numberは10桁以上でないと保存できない' do
+        @order_address.phone_number = '090123456'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include('Phone number is invalid. Not include hyphen(-)')
+      end
+      it 'phone_numberは11桁以内でないと保存できない' do
+        @order_address.phone_number = '090123456789'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone number is invalid. Not include hyphen(-)')
       end
