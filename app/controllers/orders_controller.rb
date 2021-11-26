@@ -3,7 +3,6 @@ class OrdersController < ApplicationController
   before_action :set_order
   before_action :move_to_index, only: :index
 
-
   def index
     @order_address = OrderAddress.new
   end
@@ -47,5 +46,4 @@ class OrdersController < ApplicationController
       redirect_to root_path
     end
   end
-
 end
