@@ -22,6 +22,18 @@ window.addEventListener('load', () => {
       ImageList.appendChild(imageElement);
     };
 
+    // file_fieldを生成・表示する関数
+    const buildNewFileField = () => {
+      // 2枚目用のfile_fieldを作成
+      const newFileField = document.createElement('input');
+      newFileField.setAttribute('type', 'file');
+      newFileField.setAttribute('name', 'item[images][]');
+
+      // 生成したfile_fieldを表示
+      const fileFieldsArea = document.querySelector('.click-upload');
+      fileFieldsArea.appendChild(newFileField);
+    };
+
     // input要素を取得、input要素で値の変化が起きた際に呼び出される関数
     document.querySelector('input[type="file"][name="item[images][]"]').addEventListener('change', function(e){
 
