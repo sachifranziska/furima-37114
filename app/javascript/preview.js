@@ -47,13 +47,29 @@ window.addEventListener('load', () => {
     fileFieldsArea.appendChild(newFileField);
   };
 
+   // 指定したdata-indexを持つプレビューとfile_fieldを削除する
+   const deleteImage = (dataIndex) => {
+    const deletePreviewImage = document.querySelector(`.preview[data-index="${dataIndex}"]`);
+    deletePreviewImage.remove();
+    const deleteFileField = document.querySelector(`input[type="file"][data-index="${dataIndex}"]`);
+    deleteFileField.remove();
+  };
+
   // input要素で値の変化が起きた際に呼び出される関数の中身
   const changedFileField = (e) => {
     // data-index（何番目を操作しているか）を取得
     const dataIndex = e.target.getAttribute('data-index');
 
-    // 画像ファイルの情報を取得、画像情報のURLを生成
+    // 画像ファイルの情報を取得
     const file = e.target.files[0];
+
+    // fileが空 = 何も選択しなかったのでプレビュー等を削除して終了する
+    if (!file) {
+      deleteImage(dataIndex);
+      return null;
+    };
+
+    // 画像情報のURLを生成
     const pict = window.URL.createObjectURL(file);
 
     // data-indexを使用して、既にプレビューが表示されているかを確認する
