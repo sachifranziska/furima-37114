@@ -11,6 +11,8 @@ class Item < ApplicationRecord
   belongs_to :scheduled_delivery
 
   validates :images, presence: true
+  validates :images, length: { minimum: 1, maximum: 3, message: "は1枚以上3枚以下にしてください" }
+
   validates :name, presence: true
   validates :info, presence: true
 
