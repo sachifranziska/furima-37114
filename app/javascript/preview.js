@@ -21,8 +21,14 @@ window.addEventListener('load', () => {
     pictImage.setAttribute('src', pict);
     pictImage.classList.add('preview-size');
 
+    // 削除ボタンを生成
+    const deleteButton = document.createElement("div");
+    deleteButton.setAttribute("class", "image-delete-button");
+    deleteButton.innerText = "削除";
+
     // 生成したHTMLの要素をブラウザに表示させる
     imageElement.appendChild(pictImage);
+    imageElement.appendChild(deleteButton);
     ImageList.appendChild(imageElement);
   };
 
