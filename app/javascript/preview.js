@@ -26,6 +26,9 @@ window.addEventListener('load', () => {
     deleteButton.setAttribute("class", "image-delete-button");
     deleteButton.innerText = "削除";
 
+    // 削除ボタンをクリックしたらプレビューとfile_fieldを削除させる
+    deleteButton.addEventListener("click", () => deleteImage(dataIndex));
+
     // 生成したHTMLの要素をブラウザに表示させる
     imageElement.appendChild(pictImage);
     imageElement.appendChild(deleteButton);
