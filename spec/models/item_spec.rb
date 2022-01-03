@@ -14,7 +14,7 @@ RSpec.describe Item, type: :model do
 
     context '登録できない場合' do
       it '商品画像がなければ登録できない' do
-        @item.image = nil
+        @item.images = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("画像を入力してください")
       end
