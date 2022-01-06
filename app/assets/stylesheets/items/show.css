@@ -33,6 +33,16 @@
   object-fit: contain;
 }
 
+.other-images {
+  display: flex;
+  justify-content: space-between;
+}
+
+.other-item-image {
+  height: 40vh;
+  width: auto;
+}
+
 .item-price-box {
   margin: 25px 0px;
   display: flex;
