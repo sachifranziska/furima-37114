@@ -89,8 +89,13 @@
   margin-bottom: 15px;
 }
 
+.preview {
+  display: inline-block;
+  padding: 5px;
+}
+
 .preview-size{
-  height: 150px;
+  height: 130px;
   width: auto;
 }
 
